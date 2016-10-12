@@ -1,0 +1,31 @@
+group 'jvm-redux'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.0.3'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+    maven { url "http://repository.jetbrains.com/all" }
+}
+
+configurations {
+    ktlint
+    testOutput
+}
+
+dependencies {
+    ktlint 'com.github.shyiko:ktlint:0.1.2'
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
