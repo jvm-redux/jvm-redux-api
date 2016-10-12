@@ -1,4 +1,4 @@
-group 'jvm-redux'
+group 'jvm-main.redux'
 version '1.0-SNAPSHOT'
 
 buildscript {
