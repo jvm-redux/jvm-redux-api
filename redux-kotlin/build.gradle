@@ -1,4 +1,4 @@
-group 'jvm-main.redux'
+group 'jvm-redux'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'kotlin'
