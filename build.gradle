@@ -2,8 +2,11 @@ group 'jvm-main.redux'
 version '1.0-SNAPSHOT'
 
 buildscript {
+    ext.kotlin_version = '1.0.4'
     repositories {
         mavenCentral()
     }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
-

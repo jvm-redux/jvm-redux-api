@@ -1,0 +1,14 @@
+group 'jvm-main.redux'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':redux')
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
