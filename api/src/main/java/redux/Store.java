@@ -51,7 +51,7 @@ public interface Store<S> extends Dispatcher {
 		/**
 		 *
 		 */
-		Store<S> create(Reducer<S> reducer, S initialState, Enhancer<S> enhancer);
+		Store<S> create(Reducer<S> reducer, S initialState);
 	}
 
 	/**
