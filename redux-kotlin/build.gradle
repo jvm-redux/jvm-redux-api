@@ -10,5 +10,5 @@ repositories {
 dependencies {
     compile project(':redux')
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile jUnit
 }
