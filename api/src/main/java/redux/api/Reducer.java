@@ -1,4 +1,4 @@
-package redux;
+package redux.api;
 
 /**
  * A reducer accepts an accumulation and a value and returns a new accumulation. They are used to reduce a collection of

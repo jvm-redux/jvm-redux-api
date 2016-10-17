@@ -1,4 +1,4 @@
-package redux;
+package redux.api;
 
 /**
  * Coordinates actions and [Reducers][Reducer]. Store has the following responsibilities:

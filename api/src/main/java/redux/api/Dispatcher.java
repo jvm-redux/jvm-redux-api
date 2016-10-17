@@ -1,4 +1,4 @@
-package redux;
+package redux.api;
 
 /**
  * A dispatcher is an interface that accepts an action or an async action; it then may or may not dispatch one or more
