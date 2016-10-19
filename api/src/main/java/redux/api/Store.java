@@ -5,7 +5,7 @@ package redux.api;
  * <ul>
  * 	<li>Holds application state</li>
  * 	<li>Allows access to state via {@link #getState()}</li>
- * 	<li>Allows state to be updated via {@link redux.Dispatcher#dispatch(Object)}</li>
+ * 	<li>Allows state to be updated via {@link Dispatcher#dispatch(Object)}</li>
  * 	<li>Registers listeners via {@link #subscribe(Subscriber)}</li>
  * 	<li>Handles unregistering of listeners via the {@link Subscriber} returned by {@link #subscribe(Subscriber)}</li>
  * </ul>
@@ -42,14 +42,18 @@ public interface Store<S> extends Dispatcher {
 	void replaceReducer(Reducer<S> reducer);
 
 	/**
-	 * An interface that creates a Redux store.
+	 * An interface that creates a store.
 	 *
 	 * @see <a href="http://redux.js.org/docs/Glossary.html#store-creator">http://redux.js.org/docs/Glossary.html#store-creator</a>
 	 */
 	interface Creator<S> {
 
 		/**
+		 * Creates a store.
 		 *
+		 * @param reducer Reducer for the store state
+		 * @param initialState Initial state for the store
+		 * @return The store
 		 */
 		Store<S> create(Reducer<S> reducer, S initialState);
 	}
@@ -62,7 +66,10 @@ public interface Store<S> extends Dispatcher {
 	interface Enhancer<S> {
 
 		/**
+		 * Composes a store creator to return a new, enhanced store creator.
 		 *
+		 * @param next The next store creator to compose
+		 * @return The composed store creator
 		 */
 		Creator<S> enhance(Creator<S> next);
 	}
