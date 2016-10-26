@@ -1,21 +1,19 @@
 group 'jvm-redux'
 version '1.0-SNAPSHOT'
 
-buildscript {
-    ext {
-        // Versions
-        kotlinVersion = '1.0.4'
-        jUnitVersion = '4.12'
+apply plugin: 'java'
 
-        // Libs
-        jUnit = "junit:junit:$jUnitVersion"
-    }
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
 
-    repositories {
-        mavenCentral()
-    }
+task javadocJar(type: Jar, dependsOn: javadoc) {
+	classifier = 'javadoc'
+	from javadoc.destinationDir
+}
 
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    }
+artifacts {
+	archives sourcesJar
+	archives javadocJar
 }
