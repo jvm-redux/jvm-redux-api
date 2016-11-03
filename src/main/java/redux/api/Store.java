@@ -1,7 +1,7 @@
 package redux.api;
 
 /**
- * Coordinates actions and [Reducers][Reducer]. Store has the following responsibilities:
+ * Coordinates actions and {@link Reducer}. Store has the following responsibilities:
  * <ul>
  * 	<li>Holds application state</li>
  * 	<li>Allows access to state via {@link #getState()}</li>
