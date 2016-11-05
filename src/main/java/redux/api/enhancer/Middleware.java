@@ -1,6 +1,7 @@
 package redux.api.enhancer;
 
 import redux.api.Dispatcher;
+import redux.api.StateProvider;
 
 /**
  * A middleware is an interface that composes a {@link Dispatcher} to return a new dispatch function. It often turns
@@ -23,21 +24,5 @@ interface Middleware<S> {
      * @return The action
      */
     Object dispatch(StateProvider<S> stateProvider, Object action, Dispatcher next);
-
-    /**
-     * An interface to return the current state of the store.
-     *
-     * @param <S> The store type
-     */
-    interface StateProvider<S> {
-
-        /**
-         * Returns the current state of the store.
-         *
-         * @return The current state of the store.
-         */
-        S getState();
-
-    }
 
 }
