@@ -14,85 +14,90 @@ package redux.api;
  */
 public interface Store<S> extends StateProvider<S>, Dispatcher {
 
-    /**
-     * @inherit
-     */
-    S getState();
+	/**
+	 * @inherit
+	 */
+	S getState();
 
-    /**
-     * Adds a change listener. It will be called any time an action is dispatched, and some part of the state tree may
-     * potentially have changed. You may then call {@link #getState()} to read the current state tree inside the
-     * callback.
-     *
-     * @param subscriber The subscriber
-     * @return A subscription
-     * @see <a href="http://redux.js.org/docs/api/Store.html#subscribe">http://redux.js.org/docs/api/Store.html#subscribe</a>
-     */
-    Subscription subscribe(Subscriber subscriber);
+	/**
+	 * Adds a change listener. It will be called any time an action is dispatched, and some part of the state tree may
+	 * potentially have changed. You may then call {@link #getState()} to read the current state tree inside the
+	 * callback.
+	 *
+	 * @param subscriber The subscriber
+	 * @return A subscription
+	 * @see <a href="http://redux.js.org/docs/api/Store.html#subscribe">http://redux.js.org/docs/api/Store.html#subscribe</a>
+	 */
+	Subscription subscribe(Subscriber subscriber);
 
-    /**
-     * Replaces the reducer currently used by the store to calculate the state.
-     *
-     * @param reducer The reducer
-     * @see <a href="http://redux.js.org/docs/api/Store.html#replaceReducer">http://redux.js.org/docs/api/Store.html#replaceReducer</a>
-     */
-    void replaceReducer(Reducer<S> reducer);
+	/**
+	 * Replaces the reducer currently used by the store to calculate the state.
+	 *
+	 * @param reducer The reducer
+	 * @see <a href="http://redux.js.org/docs/api/Store.html#replaceReducer">http://redux.js.org/docs/api/Store.html#replaceReducer</a>
+	 */
+	void replaceReducer(Reducer<S> reducer);
 
-    /**
-     * An interface that creates a store.
-     *
-     * @see <a href="http://redux.js.org/docs/Glossary.html#store-creator">http://redux.js.org/docs/Glossary.html#store-creator</a>
-     */
-    interface Creator<S> {
+	/**
+	 * An interface that creates a store.
+	 *
+	 * @see <a href="http://redux.js.org/docs/Glossary.html#store-creator">http://redux.js.org/docs/Glossary.html#store-creator</a>
+	 */
+	interface Creator<S> {
 
-        /**
-         * Creates a store.
-         *
-         * @param reducer Reducer for the store state
-         * @param initialState Initial state for the store
-         * @return The store
-         */
-        Store<S> create(Reducer<S> reducer, S initialState);
-    }
+		/**
+		 * Creates a store.
+		 *
+		 * @param reducer Reducer for the store state
+		 * @param initialState Initial state for the store
+		 * @return The store
+		 */
+		Store<S> create(Reducer<S> reducer, S initialState);
 
-    /**
-     * An interface that composes a store creator to return a new, enhanced store creator.
-     *
-     * @see <a href="http://redux.js.org/docs/Glossary.html#store-enhancer">http://redux.js.org/docs/Glossary.html#store-enhancer</a>
-     */
-    interface Enhancer<S> {
+	}
 
-        /**
-         * Composes a store creator to return a new, enhanced store creator.
-         *
-         * @param next The next store creator to compose
-         * @return The composed store creator
-         */
-        Creator<S> enhance(Creator<S> next);
-    }
+	/**
+	 * An interface that composes a store creator to return a new, enhanced store creator.
+	 *
+	 * @see <a href="http://redux.js.org/docs/Glossary.html#store-enhancer">http://redux.js.org/docs/Glossary.html#store-enhancer</a>
+	 */
+	interface Enhancer<S> {
 
-    /**
-     * A listener which will be called any time an action is dispatched, and some part of the state tree may potentially
-     * have changed. You may then call {@link #getState()} to read the current state tree inside the listener.
-     *
-     * @see <a href="http://redux.js.org/docs/api/Store.html#subscribe">http://redux.js.org/docs/api/Store.html#subscribe</a>
-     */
-    interface Subscriber {
+		/**
+		 * Composes a store creator to return a new, enhanced store creator.
+		 *
+		 * @param next The next store creator to compose
+		 * @return The composed store creator
+		 */
+		Creator<S> enhance(Creator<S> next);
 
-        /**
-         * Called any time an action is dispatched.
-         */
-        void onStateChanged();
-    }
+	}
 
-    /**
-     * A reference to the {@link Subscriber} to allow for unsubscription.
-     */
-    interface Subscription {
+	/**
+	 * A listener which will be called any time an action is dispatched, and some part of the state tree may potentially
+	 * have changed. You may then call {@link #getState()} to read the current state tree inside the listener.
+	 *
+	 * @see <a href="http://redux.js.org/docs/api/Store.html#subscribe">http://redux.js.org/docs/api/Store.html#subscribe</a>
+	 */
+	interface Subscriber {
 
-        /**
-         * Unsubscribe the {@link Subscriber} from the {@link Store}.
-         */
-        void unsubscribe();
-    }
+		/**
+		 * Called any time an action is dispatched.
+		 */
+		void onStateChanged();
+
+	}
+
+	/**
+	 * A reference to the {@link Subscriber} to allow for unsubscription.
+	 */
+	interface Subscription {
+
+		/**
+		 * Unsubscribe the {@link Subscriber} from the {@link Store}.
+		 */
+		void unsubscribe();
+
+	}
+
 }

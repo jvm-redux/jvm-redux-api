@@ -13,19 +13,18 @@ public interface Reducer<S> {
 	 *
 	 * Things you should never do inside a reducer:
 	 * <ul>
-	 *     <li>Mutate its arguments</li>
-	 *     <li>Perform side effects like API calls and routing transitions</li>
-	 *     <li>Call non-pure functions, e.g. Date() or Random.nextInt()</li>
+	 * <li>Mutate its arguments</li>
+	 * <li>Perform side effects like API calls and routing transitions</li>
+	 * <li>Call non-pure functions, e.g. Date() or Random.nextInt()</li>
 	 * </ul>
 	 *
 	 * Given the same arguments, it should calculate the next state and return it. No surprises. No side effects. No API
 	 * calls. No mutations. Just a calculation.
 	 *
-	 * @see <a href="http://redux.js.org/docs/basics/Reducers.html">http://redux.js.org/docs/basics/Reducers.html</a>
-	 *
 	 * @param state The previous state
 	 * @param action The dispatched action
 	 * @return The new state
+	 * @see <a href="http://redux.js.org/docs/basics/Reducers.html">http://redux.js.org/docs/basics/Reducers.html</a>
 	 */
 	S reduce(S state, Object action);
 
