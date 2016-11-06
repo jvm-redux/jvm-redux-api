@@ -11,10 +11,9 @@ public interface Dispatcher {
 	/**
 	 * Dispatches an action. This is the only way to trigger a state change.
 	 *
-	 * @see <a href="http://redux.js.org/docs/api/Store.html#dispatch">http://redux.js.org/docs/api/Store.html#dispatch</a>
-	 *
 	 * @param action A plain object describing the change that makes sense for your application
 	 * @return The dispatched action
+	 * @see <a href="http://redux.js.org/docs/api/Store.html#dispatch">http://redux.js.org/docs/api/Store.html#dispatch</a>
 	 */
 	Object dispatch(Object action);
 
