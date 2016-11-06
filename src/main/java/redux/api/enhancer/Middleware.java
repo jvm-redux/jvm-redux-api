@@ -1,7 +1,7 @@
 package redux.api.enhancer;
 
 import redux.api.Dispatcher;
-import redux.api.StateProvider;
+import redux.api.Store;
 
 /**
  * A middleware is an interface that composes a {@link Dispatcher} to return a new dispatch function. It often turns
@@ -15,12 +15,12 @@ interface Middleware<S> {
 	/**
 	 * Dispatches an action. This is the only way to trigger a state change.
 	 *
-	 * @param stateProvider An interface to return the current state of the store.
+	 * @param store An interface to return the current state of the store.
+	 * @param next The next dispatcher in the chain
 	 * @param action The action
-	 * @param dispatcher The next dispatcher in the chain
 	 * @return The action
 	 * @see <a href="http://redux.js.org/docs/Glossary.html#middleware">http://redux.js.org/docs/Glossary.html#middleware</a>
 	 */
-	Object dispatch(StateProvider<S> stateProvider, Object action, Dispatcher dispatcher);
+	Object dispatch(Store<S> store, Dispatcher next, Object action);
 
 }

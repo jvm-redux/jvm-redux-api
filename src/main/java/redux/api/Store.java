@@ -12,7 +12,7 @@ package redux.api;
  *
  * @see <a href="http://redux.js.org/docs/basics/Store.html">http://redux.js.org/docs/basics/Store.html</a>
  */
-public interface Store<S> extends StateProvider<S>, Dispatcher {
+public interface Store<S> extends Dispatcher {
 
 	/**
 	 * @inherit
