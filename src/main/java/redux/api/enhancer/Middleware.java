@@ -20,9 +20,9 @@ interface Middleware<S> {
      *
      * @param stateProvider An interface to return the current state of the store.
      * @param action The action
-     * @param next The next dispatcher in the chain
+     * @param dispatcher The next dispatcher in the chain
      * @return The action
      */
-    Object dispatch(StateProvider<S> stateProvider, Object action, Dispatcher next);
+    Object dispatch(StateProvider<S> stateProvider, Object action, Dispatcher dispatcher);
 
 }
