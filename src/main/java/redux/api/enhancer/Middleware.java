@@ -10,7 +10,7 @@ import redux.api.Store;
  * @param <S> The store type
  * @see <a href="http://redux.js.org/docs/advanced/Middleware.html">http://redux.js.org/docs/advanced/Middleware.html</a>
  */
-interface Middleware<S> {
+public interface Middleware<S> {
 
 	/**
 	 * Dispatches an action. This is the only way to trigger a state change.
