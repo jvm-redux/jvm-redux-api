@@ -14,7 +14,9 @@ package redux.api;
  */
 public interface Store<S> extends Dispatcher {
 
-	/**
+	Object INIT = new Object();
+
+    /**
 	 * Returns the current state tree of your application. It is equal to the last value returned by the store’s
 	 * reducer.
 	 *
@@ -97,7 +99,14 @@ public interface Store<S> extends Dispatcher {
 	 */
 	interface Subscription {
 
-		/**
+		Subscription EMPTY = new Subscription() {
+			@Override
+			public void unsubscribe() {
+
+			}
+		};
+
+        /**
 		 * Unsubscribe the {@link Subscriber} from the {@link Store}.
 		 */
 		void unsubscribe();
