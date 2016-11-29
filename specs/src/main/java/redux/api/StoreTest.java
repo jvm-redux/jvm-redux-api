@@ -1,5 +1,6 @@
 package redux.api;
 
+import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 import redux.api.helpers.Reducers;
 import redux.api.helpers.State;
@@ -15,7 +16,7 @@ import static redux.api.helpers.ActionsCreator.unknownAction;
 
 public abstract class StoreTest {
 
-    public abstract <S> Store<S> createStore(Reducer<S> reducer, S state);
+    @NotNull public abstract <S> Store<S> createStore(@NotNull Reducer<S> reducer, @NotNull S state);
 
     @Test
     public void passesTheInitialActionAndTheInitialState() {
