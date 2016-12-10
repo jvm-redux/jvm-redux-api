@@ -246,7 +246,7 @@ public abstract class StoreTest {
             }
         }));
 
-        subscriptions.add(store.subscribe(subscriber2));
+        subscriptions.add(store.subscribe(subscriber3));
 
         store.dispatch(unknownAction());
         verify(subscriber1, times(1)).onStateChanged();
