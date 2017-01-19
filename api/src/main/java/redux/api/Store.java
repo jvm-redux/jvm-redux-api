@@ -49,7 +49,7 @@ public interface Store<S> extends Dispatcher {
 	 *
 	 * @see <a href="http://redux.js.org/docs/Glossary.html#store-creator">http://redux.js.org/docs/Glossary.html#store-creator</a>
 	 */
-	interface Creator<S> {
+	interface Creator {
 
 		/**
 		 * Creates a store.
@@ -58,7 +58,7 @@ public interface Store<S> extends Dispatcher {
 		 * @param initialState Initial state for the store
 		 * @return The store
 		 */
-		Store<S> create(Reducer<S> reducer, S initialState);
+		<S> Store<S> create(Reducer<S> reducer, S initialState);
 
 	}
 
@@ -67,7 +67,7 @@ public interface Store<S> extends Dispatcher {
 	 *
 	 * @see <a href="http://redux.js.org/docs/Glossary.html#store-enhancer">http://redux.js.org/docs/Glossary.html#store-enhancer</a>
 	 */
-	interface Enhancer<S> {
+	interface Enhancer {
 
 		/**
 		 * Composes a store creator to return a new, enhanced store creator.
@@ -75,7 +75,7 @@ public interface Store<S> extends Dispatcher {
 		 * @param next The next store creator to compose
 		 * @return The composed store creator
 		 */
-		Creator<S> enhance(Creator<S> next);
+		Creator enhance(Creator next);
 
 	}
 
