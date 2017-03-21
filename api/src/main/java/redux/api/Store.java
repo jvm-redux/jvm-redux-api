@@ -14,9 +14,12 @@ package redux.api;
  */
 public interface Store<S> extends Dispatcher {
 
-	Object INIT = new Object();
+	/**
+	 * Initialization action reference.
+	 */
+	Init INIT = Init.INSTANCE
 
-    /**
+	/**
 	 * Returns the current state tree of your application. It is equal to the last value returned by the store’s
 	 * reducer.
 	 *
@@ -59,7 +62,6 @@ public interface Store<S> extends Dispatcher {
 		 * @return The store
 		 */
 		Store<S> create(Reducer<S> reducer, S initialState);
-
 	}
 
 	/**
@@ -76,7 +78,6 @@ public interface Store<S> extends Dispatcher {
 		 * @return The composed store creator
 		 */
 		Creator<S> enhance(Creator<S> next);
-
 	}
 
 	/**
@@ -91,7 +92,6 @@ public interface Store<S> extends Dispatcher {
 		 * Called any time an action is dispatched.
 		 */
 		void onStateChanged();
-
 	}
 
 	/**
@@ -106,10 +106,20 @@ public interface Store<S> extends Dispatcher {
 			}
 		};
 
-        /**
+		/**
 		 * Unsubscribe the {@link Subscriber} from the {@link Store}.
 		 */
 		void unsubscribe();
+	}
+
+	/**
+	 * Initialization action.
+	 */
+	public final class Init {
+
+		private static final Init INSTANCE = new Init();
+
+		private Init()
 
 	}
 
